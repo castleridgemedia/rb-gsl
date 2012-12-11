@@ -286,5 +286,6 @@ end
 srcs = Dir.glob("*.c") - ["vector_source.c", "matrix_source.c", "tensor_source.c", "poly_source.c", "block_source.c"]
 
 $objs = srcs.collect { |f| f.sub(".c", ".o") }
-
+# no time to sneak in and change this
+RbConfig::MAKEFILE_CONFIG['CC'] = ENV['CC'] if ENV['CC']
 create_makefile("rb_gsl")
